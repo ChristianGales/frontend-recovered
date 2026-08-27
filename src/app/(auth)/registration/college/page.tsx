@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 
-import CollegeRegistrationForm from "@/components/forms/registration/college/college-registration-form";
 import PrivacyPolicyPage from "@/components/shared/privacy-policy";
+import CollegeRegistrationForm from "@/components/forms/registration/college/student-registration-form-v2";
 
 const CollegeRegistration = () => {
 
@@ -23,5 +23,4 @@ const CollegeRegistration = () => {
 }
 
 export default CollegeRegistration;
-
 

@@ -43,7 +43,8 @@ const initialData: StaffLoginData = {
 
 const roleRedirects: Partial<Record<StaffRole, string>> = {
   admin: "/admin",
-  registrar: "/registrar/college",
+  college_registrar: "/registrar/college/",
+  basic_education_registrar: "/registrar/basic-ed",
   instructor: "/faculty",
   teacher: "/faculty",
 }
@@ -139,10 +140,16 @@ export function StaffLoginForm({
 
     const session = createStaffSession(staff)
 
+    // staff-login.tsx — inside handleSubmit, before setting activeStaff
+    sessionStorage.removeItem("activeStudent")
+    sessionStorage.setItem("activeStaff", JSON.stringify(session))
+
     sessionStorage.setItem(
       "activeStaff",
       JSON.stringify(session)
     )
+
+
 
     router.replace(redirectPath)
   }

@@ -3,11 +3,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-
-import { ChevronUp, User, ChevronDown, Calendar, ShieldCheck } from "lucide-react"
+import { ChevronDown, Calendar } from "lucide-react"
 
 import {
-  Sidebar,
+  Sidebar as SidebarPrimitive,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
@@ -30,13 +29,6 @@ import {
 } from "@/components/ui/collapsible"
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
-import {
   Select,
   SelectContent,
   SelectItem,
@@ -45,31 +37,29 @@ import {
 } from "@/components/ui/select"
 
 import { SideBarLinks } from "@/components/navigation/sidebar-links"
-import { activeUser } from "@/lib/dummy/user"
 
 const SCHOOL_YEARS = ["2023-2024", "2024-2025", "2025-2026", "2026-2027"]
 const SEMESTERS = ["1st Semester", "2nd Semester", "Summer"]
 
-const AppSidebar = () => {
+interface AppSidebarProps {
+  role: string
+}
+
+const AppSidebar = ({ role }: AppSidebarProps) => {
   const pathname = usePathname()
 
   const filteredLinks = SideBarLinks.main.filter((item) =>
-    item.visible.includes(activeUser.role)
+    item.visible.includes(role)
   )
 
   return (
-    <Sidebar collapsible="icon">
+    <SidebarPrimitive collapsible="icon">
       <SidebarHeader className="py-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link href="/dashboard">
-                <Image
-                  src="/images/nsc-logoo.png"
-                  alt="NSC Logo"
-                  width={40}
-                  height={40}
-                />
+                <Image src="/images/nsc-logoo.png" alt="NSC Logo" width={40} height={40} />
                 <span>NSC SMS</span>
               </Link>
             </SidebarMenuButton>
@@ -82,7 +72,6 @@ const AppSidebar = () => {
           <SidebarGroupLabel>Applications</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-
               {filteredLinks.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
@@ -102,9 +91,7 @@ const AppSidebar = () => {
                     </Link>
                   </SidebarMenuButton>
 
-                  {item.badge && (
-                    <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
-                  )}
+                  {item.badge && <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>}
                 </SidebarMenuItem>
               ))}
 
@@ -130,43 +117,19 @@ const AppSidebar = () => {
                   </CollapsibleContent>
                 </SidebarMenuItem>
               </Collapsible>
-
-              <Collapsible className="group/collapsible">
-                <SidebarMenuItem>
-                  <CollapsibleTrigger asChild>
-                    <SidebarMenuButton>
-                      <ShieldCheck />
-                      <span>Authentication</span>
-                      <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
-                    </SidebarMenuButton>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent>
-                    <SidebarMenuSub>
-                      {SideBarLinks.auth.map((item) => (
-                        <SidebarMenuSubItem key={item.title}>
-                          <SidebarMenuSubButton asChild>
-                            <Link href={item.url}>{item.title}</Link>
-                          </SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      ))}
-                    </SidebarMenuSub>
-                  </CollapsibleContent>
-                </SidebarMenuItem>
-              </Collapsible>
-
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
 
       <SidebarFooter>
-        {activeUser.role === "admin" && (
+        {role === "admin" && (
           <div className="px-2 pb-1 flex flex-col gap-2">
             <p className="text-xs font-semibold text-sidebar-foreground/60 uppercase tracking-wide px-1">
               Active Term
             </p>
 
-            <Select >
+            <Select>
               <SelectTrigger className="w-full h-8 text-xs">
                 <SelectValue placeholder="School Year" />
               </SelectTrigger>
@@ -202,11 +165,9 @@ const AppSidebar = () => {
             </button>
           </div>
         )}
-
-        
       </SidebarFooter>
-    </Sidebar>
+    </SidebarPrimitive>
   )
 }
 
-export default AppSidebar;
+export default AppSidebar

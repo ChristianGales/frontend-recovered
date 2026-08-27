@@ -100,12 +100,18 @@ export function StudentLoginForm({
       return
     }
 
+   
     const session = createStudentSession(student)
+
+    sessionStorage.removeItem("activeStaff")
+    sessionStorage.setItem("activeStudent", JSON.stringify(session))
 
     sessionStorage.setItem(
       "activeStudent",
       JSON.stringify(session)
     )
+
+  
 
     router.push("/student/college")
   }
@@ -229,8 +235,8 @@ export function StudentLoginForm({
 
               <FieldDescription className="text-center">
                 Don&apos;t have an account?{" "}
-                <a
-                  href="/student/register"
+                <a 
+                  href="/registration/college" 
                   className="font-medium underline underline-offset-4"
                 >
                   Register Student

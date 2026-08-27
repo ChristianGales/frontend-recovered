@@ -12,7 +12,7 @@ export const dummyStaffUsers: StaffUser[] = [
     position: "Chief Registrar",
     office: "Office of the Registrar",
     status: "active",
-    role: "registrar",
+    role: "college_registrar",
   },
   {
     id: "STF-002",
@@ -24,7 +24,7 @@ export const dummyStaffUsers: StaffUser[] = [
     position: "Assistant Registrar",
     office: "Office of the Registrar",
     status: "active",
-    role: "registrar",
+    role: "college_registrar",
   },
   {
     id: "STF-003",

@@ -1,6 +1,6 @@
 export type StaffStatus = "active" | "inactive"
 
-export type StaffRole = "admin" | "registrar" | "instructor" | "teacher"
+export type StaffRole = "admin" | "college_registrar" | "basic_education_registrar" | "instructor" | "teacher"
 
 export interface StaffUser {
   id: string
