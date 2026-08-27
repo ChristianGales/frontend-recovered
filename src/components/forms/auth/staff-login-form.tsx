@@ -47,6 +47,7 @@ const roleRedirects: Partial<Record<StaffRole, string>> = {
   basic_education_registrar: "/registrar/basic-ed",
   instructor: "/faculty",
   teacher: "/faculty",
+  president: "/president",
 }
 
 export function StaffLoginForm({

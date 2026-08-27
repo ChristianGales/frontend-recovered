@@ -428,22 +428,17 @@
       // },
   
       // ─── student ──────────────────────────────────────────────
+      
       {
-        title: "My Schedule",
-        url: "/schedule",
-        icon: Calendar,
-        visible: ["student"],
-      },
-      {
-        title: "My Enrollment",
-        url: "/enrollment",
-        icon: ClipboardList,
-        visible: ["student"],
-      },
-      {
-        title: "My Grades",
-        url: "/my-grades",
+        title: "Transcript of Records",
+        url: "/student/college/grades",
         icon: GraduationCap,
+        visible: ["student"],
+      },
+      {
+        title: "SOA",
+        url: "/my-grades",
+        icon: ClipboardList,
         visible: ["student"],
       },
       // not visible online

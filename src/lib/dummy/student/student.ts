@@ -38,4 +38,17 @@ export const dummyStudentUsers: StudentUser[] = [
     status: "active",
     role: "student",
   },
+  {
+    id: "STU-004",
+    studentNumber: "230460",
+    firstName: "Rio",
+    middleName: "Umanga",
+    lastName: "Atencio",
+    email: "rio.atencio@nsc.edu.ph",
+    password: "student230",
+    course: "BSIT",
+    yearLevel: 4,
+    status: "active",
+    role: "student",
+  },
 ]

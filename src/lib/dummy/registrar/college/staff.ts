@@ -62,4 +62,17 @@ export const dummyStaffUsers: StaffUser[] = [
     status: "active",
     role: "teacher",
   },
+
+  {
+    id: "STF-007",
+    employeeId: "210010",
+    firstName: "Paolo",
+    lastName: "Ramos",
+    email: "paolo.ramos@nsc.edu.ph",
+    password: "teacher123",
+    position: "Basic Education Teacher",
+    office: "Basic Education Department",
+    status: "active",
+    role: "president",
+  },
 ]

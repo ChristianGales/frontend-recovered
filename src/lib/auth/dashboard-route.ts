@@ -10,6 +10,7 @@ const ROUTE_RULES: RouteRule[] = [
   { prefix: "/registrar/college", roles: ["college_registrar"] },
   { prefix: "/registrar/basic-ed", roles: ["basic_education_registrar"] },
   { prefix: "/faculty", roles: ["instructor", "teacher"] },
+  { prefix: "/president", roles: ["president"] },
 ]
 
 export function isAllowed(pathname: string, role: string): boolean {
