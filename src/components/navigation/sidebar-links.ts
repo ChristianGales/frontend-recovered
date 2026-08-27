@@ -430,15 +430,15 @@
       // ─── student ──────────────────────────────────────────────
       
       {
-        title: "Transcript of Records",
+        title: "Transcript",
         url: "/student/college/grades",
         icon: GraduationCap,
         visible: ["student"],
       },
       {
         title: "SOA",
-        url: "/my-grades",
-        icon: ClipboardList,
+        url: "/student/college/soa",
+        icon: Wallet,
         visible: ["student"],
       },
       // not visible online
